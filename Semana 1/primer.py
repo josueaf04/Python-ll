@@ -1,5 +1,4 @@
-
-print('BIENVENID@\n\nDIGITE UN NUMERO ENTRE 1-6 PARA VER EL MENU\n')
+print('BIENVENIDO!\n\nDIGITE UN NUMERO ENTRE 1-6 PARA VER EL MENU\n')
 
 choices = [0, 1, 2, 3, 4, 5, 6]
 
@@ -22,7 +21,7 @@ while choice in choices:
 
             def sumar (plus, plus1): 
                 suma = plus + plus1
-                print(f'EL RESULTADO DE LA SUMA ES: {suma}\n')
+                print(f'**EL RESULTADO DE LA SUMA ES: {suma}**\n')
             sumar(plus, plus1)
             
         elif choice == 2: 
@@ -34,7 +33,7 @@ while choice in choices:
 
             def restar (minus, minus1): 
                 resta = minus - minus1
-                print(f'EL RESULTADO DE LA RESTA ES: {resta}\n')
+                print(f'**EL RESULTADO DE LA RESTA ES: {resta}**\n')
             restar(minus, minus1)
 
         elif choice == 3: 
@@ -46,7 +45,7 @@ while choice in choices:
 
             def multiplicar(mult, mult1): 
                 multiplicacion = mult * mult1 
-                print(f'EL RESULTADO DE LA MULTIPLICACION ES: {multiplicacion}\n')
+                print(f'**EL RESULTADO DE LA MULTIPLICACION ES: {multiplicacion}**\n')
             multiplicar(mult, mult1)
 
         elif choice == 4: 
@@ -58,7 +57,7 @@ while choice in choices:
 
             def dividir(div, div1): 
                 division = div / div1 
-                print(f'EL RESULTADO DE LA DIVISION ES: {division}\n')
+                print(f'**EL RESULTADO DE LA DIVISION ES: {division}**\n')
             dividir(div, div1)
 
         elif choice == 5: 
@@ -72,4 +71,5 @@ while choice in choices:
 
 if choice not in choices: 
     print('PORFAVOR INGRESE UNO DE LOS NUMEROS INDICADOS EN EL MENÚ\n') 
-    print('SELECCIONE LA OPERACION QUE DESEA REALIZAR:\n 1: SUMA \n 2: RESTA \n 3: MULTIPLICACION \n 4: DIVISION \n 5: VER TABLA \n 6: SALIR\n')  
+
+    
