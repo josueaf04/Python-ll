@@ -15,22 +15,7 @@ class Persona:
 
 #Creo la funcion que muestre los datos        
     def getinfo(self):
-        print(f' NOMBRE: {self.nombre}\n APELLIDOS: {self.apellido} {self.apellido1}\n FECHA DE NACIMIENTO: {self.fechanacimiento}\n EMAIL: {self.email}\n TELEFONO: {self.telefono}\n PROVINCIA: {self.provincia}\n')
-
-    # def getapellidos(self): 
-    #     print(f'Apellidos: {self.apellido} {self.apellido1}\n')  
-        
-    # def getfechanacimiento(self): 
-    #     print(f'Fecha de nacimiento{self.fechanacimiento}\n')
-    
-    # def getemail(self): 
-    #     print(f'Email: {self.email}\n')
-
-    # def getelefono(self):
-    #     print(f'Telefono: {self.telefono}\n')
-
-    # def getprovincia(self): 
-    #     print(f'Provincia: {self.provincia}\n')    
+        print(f' NOMBRE: {self.nombre}\n APELLIDOS: {self.apellido} {self.apellido1}\n FECHA DE NACIMIENTO: {self.fechanacimiento}\n EMAIL: {self.email}\n TELEFONO: {self.telefono}\n PROVINCIA: {self.provincia}\n EDAD: ')
     
 #Cambiar o ajustar los datos
 
@@ -55,7 +40,8 @@ class Persona:
 
     def edad(self, fecha): 
         self.fechanacimiento = fecha
-        print(fecha[-1])
+        edad = 2023 - int(fecha[6:10])
+        print(f'LA EDAD DEL USUARIO ES: {edad}')
           
                 
 #Se requieren los set y gets email, apellido, fecha nacimiento, telefono, provincia        
@@ -65,4 +51,4 @@ class Persona:
 
 Usuario = Persona("Josue", "Angulo", "Frino", '01/01/2004', 'davidangulofz@gmail.com', '72728248', 'San Jose')
 Usuario.getinfo()
-Usuario.edad('01/01/2004')
+Usuario.edad('01/01/1980')
