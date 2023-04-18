@@ -63,7 +63,9 @@ while choice in choices:
         elif choice == 5: 
 
             print('**TABLA**\n')
-            print(' 1 * 0 = 0\n 1 * 1 = 1\n 1 * 2 = 2\n 1 * 3 = 3\n 1 * 4 = 4\n 1 * 5 = 5\n 1 * 6 = 6\n 1 * 7= 7\n 1 * 8 = 8\n ')
+            def tabla():
+                print(' 1 * 0 = 0\n 1 * 1 = 1\n 1 * 2 = 2\n 1 * 3 = 3\n 1 * 4 = 4\n 1 * 5 = 5\n 1 * 6 = 6\n 1 * 7= 7\n 1 * 8 = 8\n ')
+            tabla()    
 
         elif choice == 6: 
             print('GRACIAS POR UTILIZAR LA CALCULADORA!') 
@@ -71,5 +73,3 @@ while choice in choices:
 
 if choice not in choices: 
     print('PORFAVOR INGRESE UNO DE LOS NUMEROS INDICADOS EN EL MENÚ\n') 
-
-    
