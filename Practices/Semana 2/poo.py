@@ -1,4 +1,5 @@
 #Personas
+import re
 
 class Persona:
 
@@ -38,8 +39,13 @@ class Persona:
     def edad(self, fecha): 
         self.fechanacimiento = fecha
         edad = 2023 - int(fecha[6:10])
-        print(f'LA EDAD DEL USUARIO ES: {edad}')
+        print(f'LA EDAD DEL USUARIO ES: {edad} AÑOS')
+
+    def formatsearcher(self, email): 
+        self.email = email
+        print(re.search(".*@cursopython.com$", email))
           
 Usuario = Persona("Josue", "Angulo", "Frino", '01/01/2004', 'davidangulofz@gmail.com', '72728248', 'San Jose')
 Usuario.getinfo()
 Usuario.edad('01/01/1980')
+Usuario.formatsearcher('davidangulofz@cursopython.com')

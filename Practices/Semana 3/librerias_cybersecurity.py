@@ -5,41 +5,46 @@ from faker import Faker
 fake = Faker()
 
 # # '.name' GENERA UN NOMBRE FALSO.
-name = fake.name()
-print(f'{name}\n')
+# name = fake.name()
+# print(f'{name}\n')
 
 # # '.address' GENERA UNA DIRECCION FALSA.
-address = fake.address()
-print(f'{address}\n')
+# address = fake.address()
+# print(f'{address}\n')
 
 # # '.text' GENERA UN TEXTO FALSO.
-text = fake.text()
-print(f'{text}\n')
+# text = fake.text()
+# print(f'{text}\n')
 
 # # SE TRAE EL MODULO INTERNET 
 from faker.providers import internet
-fake.add_provider(internet)
+# fake.add_provider(internet)
 # # PRINTEA UNA IP PRIVADA FALSA
-print(f'{fake.ipv4_private()}\n')
+# print(f'{fake.ipv4_private()}\n')
 
 # # # PUEDE RECIBIR LOCALIZACIONES COMO ARGUMENTOS
-japanesename = Faker(['ja_JP'])
-print(f'{japanesename.name()}\n')
+# japanesename = Faker(['ja_JP'])
+# print(f'{japanesename.name()}\n')
+
+mexicanname = Faker(['es_MX'])
+print(f'{mexicanname.name()}')
 
 # REQUESTS ES UNA LIBRERÍA HTTP QUE SE UTILIZA PARA ENVIAR PETICIONES HTTP Y HTTPS
 import requests
 # OBTENEMOS UNA PAGINA WEB
-request = requests.get('https://api.github.com/events')
+# request = requests.get('https://api.github.com/events')
 # SE LEE LA RESPUESTA DEL CONTENIDO DE LA WEB
-content = request.text
-print(f'{content}\n')
-print('=====================================')
+# content = request.text
+# print(f'{content}\n')
+# print('=====================================')
 
 # UN DECODIFICADOR DE CONTENIDO JSON
-jsondecoder = request.json()
-print(jsondecoder)
+# jsondecoder = request.json()
+# print(jsondecoder)
 
 # PARA ENVIAR DATA A UN URL
-payload = {'key1': 'hola', 'key2': 'HELLO'}
-request2 = requests.get('https://httpbin.org/get', params=payload)
-print(request2.url)
+# payload = {'key1': 'hola', 'key2': 'HELLO'}
+# request2 = requests.get('https://httpbin.org/get', params=payload)
+# print(request2.url)
+
+
