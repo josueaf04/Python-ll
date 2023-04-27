@@ -40,5 +40,33 @@ class profesor:
             print('Error: ', e )
             raise                
 
+    def getprofesorbyID(self, id): 
+        sql = 'SELECT id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras FROM profesor WHERE id={}'.format(id)
+
+        try: 
+            self.cursor.execute(sql)
+            user = self.cursor.fetchall()
+            for i in user:
+                print('ID: ', i[0])
+                print('CEDULA: ', i[1])
+                print('CORREO ELECTRONICO: ', i[2])
+                print('TELEFONO: ', i[3])
+                print('TELEFONO CELULAR: ', i[4])
+                print('FECHA DE NACIMIENTO: ', i[5])
+                print('SEXO: ', i[6])
+                print('DIRECCION', i[7])
+                print('NOMBRE: ', i[8])
+                print('APELLIDO PATERNO: ', i[9])
+                print('APELLIDO MATERNO: ', i[10])
+                print('NACIONALIDAD: ', i[11])
+                print('USUARIO: ', i[12])
+                print(f'ID CARRERAS: {i[13]}\n')
+                print('=======================>\n')
+
+        except Exception as e: 
+            print('Error: ', e )
+            raise      
+
 database = profesor()        
-database.getprofesor()
+# database.getprofesor()
+database.getprofesorbyID(121)

@@ -27,7 +27,24 @@ class user:
 
         except Exception as e: 
             print('Error: ', e )
-            raise                       
+            raise                   
+    def getuserbyID(self, id): 
+        sql = 'SELECT id, name, email, password FROM user  WHERE id={}'.format(id)
+
+        try: 
+            self.cursor.execute(sql)
+            user = self.cursor.fetchall()
+            for i in user:
+                print('ID: ', i[0]) 
+                print('NAME: ', i[1])
+                print('EMAIL: ', i[2])
+                print(f'PASSWORD: {i[3]}\n')
+                print('=======================>\n')
+
+        except Exception as e: 
+            print('Error: ', e )
+            raise                           
              
 database = user()    
-database.getuser()    
+# database.getuser()   
+database.getuserbyID(25) 

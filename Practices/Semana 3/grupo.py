@@ -12,7 +12,7 @@ class grupo:
 
         self.cursor = self.connection.cursor()
         print('**ESTOY EN LA BASE DE DATOS**\n')
-        
+
     def getgrupo(self): 
         sql = 'SELECT id, nombre FROM grupo'
 
@@ -28,6 +28,22 @@ class grupo:
         except Exception as e:
             print('Error: ', e )
             raise
+    
+    def getgrupobyID(self, id): 
+        sql = 'SELECT id, nombre FROM grupo WHERE id={}'.format(id)
+
+        try: 
+            self.cursor.execute(sql)
+            user = self.cursor.fetchall()
+            for i in user:
+                print('ID: ', i[0])
+                print(f'NOMBRE: {i[1]}\n')
+                print('=======================>\n')
+
+        except Exception as e: 
+            print('Error: ', e )
+            raise             
 
 database = grupo()
-database.getgrupo()        
+# database.getgrupo()        
+database.getgrupobyID(5)
