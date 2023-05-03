@@ -43,8 +43,38 @@ class user:
 
         except Exception as e: 
             print('Error: ', e )
-            raise                           
+            raise  
+
+    def updateUserNameById(self, id, name):
+        sql = "UPDATE user SET name='{}' WHERE id='{}'".format(name, id)
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+
+        except Exception as e:
+            print('Error: ', e )
+            raise  
+
+    def updateUserEmailById(self, id, email):
+        sql = "UPDATE user SET email='{}' WHERE id='{}'".format(email, id)
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+
+        except Exception as e:
+            print('Error: ', e )
+            raise 
+
+    def updateUserPasswordById(self, id, password):
+        sql = "UPDATE user SET password='{}' WHERE id='{}'".format(password, id)
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+
+        except Exception as e:
+            print('Error: ', e )
+            raise                              
              
 database = user()    
-# database.getuser()   
+database.getuser()   
 database.getuserbyID(25) 

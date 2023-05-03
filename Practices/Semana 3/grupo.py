@@ -42,8 +42,19 @@ class grupo:
 
         except Exception as e: 
             print('Error: ', e )
-            raise             
+            raise       
+
+    def updateGrupoNombredById(self, id, nombre):
+        sql = "UPDATE grupo SET nombre='{}' WHERE id='{}'".format(nombre, id)
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+
+        except Exception as e:
+            print('Error: ', e )
+            raise    
 
 database = grupo()
-# database.getgrupo()        
+database.getgrupo() 
+database.updateGrupoNombredById()       
 database.getgrupobyID(5)

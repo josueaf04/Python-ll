@@ -52,9 +52,21 @@ class Database:
                 print('Error: ', e )
                 raise        
     
-    def updateCursoById(self, id, nombre):
+    def updateCursoNombreById(self, id, nombre):
         #print(id, nombre)
         sql = "UPDATE curso SET nombre='{}' WHERE id='{}'".format(nombre, id)
+
+        try:#atrapa los errores y no permite que la aplicacion se congele o caiga
+            self.cursor.execute(sql)
+            self.connection.commit()#commit a la base de datos(update, insert, delete)
+
+        except Exception as e:
+            print('Error: ', e )
+            raise   
+
+    def updateCursoDescripcionById(self, id, descripcion):
+        #print(id, nombre)
+        sql = "UPDATE curso SET descripcion='{}' WHERE id='{}'".format(descripcion, id)
 
         try:#atrapa los errores y no permite que la aplicacion se congele o caiga
             self.cursor.execute(sql)
@@ -75,6 +87,19 @@ class Database:
         except Exception as e:
             print('Error: ', e )
             raise           
+
+    def updateCursoUsuarioById(self, id, usuario):
+        #print(id, tiempo)
+        sql = "UPDATE curso SET usuario='{}' WHERE id='{}'".format(usuario, id)
+
+        try:#atrapa los errores y no permite que la aplicacion se congele o caiga
+            self.cursor.execute(sql)
+            self.connection.commit()#commit a la base de datos(update, insert, delete)
+
+        except Exception as e:
+            print('Error: ', e )
+            raise           
+
 #nombre='[value-2]',descripcion='[value-3]',tiempo='[value-4]',usuario='[value-5]'
     def updateCursoTotalById(self, id, nombre, descripcion, tiempo, usuario):
         #print(id, tiempo)
@@ -91,12 +116,15 @@ class Database:
 
 try:#atrapa los errores y no permite que la aplicacion se congele o caiga
     database = Database()#crea una variable de tipo Database
-    #database.getCurso()#invoca la funcion de obtener todos los cursos.
-    database.getCursoById(399)#invoca la funcion de obtener un curso especifico
+    database.getCurso()#invoca la funcion de obtener todos los cursos.
+    # database.getCursoById(399)#invoca la funcion de obtener un curso especifico
     #(id, nombre)
   
-    database.updateCursoTotalById(399, 'Curso Abril Python nuevo test desc', 'Curso Avanzado', '8 Semanas Intensivo', 'Prof Mario J')
-    database.getCursoById(399)
+    database.updateCursoNombreById(421, 'Python 2')
+    database.updateCursoDescripcionById(421,'Con el profesor Mario')
+    database.updateCursoTiempoById(421, 'Abril 2023')
+    database.updateCursoUsuarioById(421, 'jangulof')
+    database.getCursoById(421)
 
 except Exception as e:
     print('Error: ', e )
