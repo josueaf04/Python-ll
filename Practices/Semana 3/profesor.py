@@ -199,20 +199,17 @@ class profesor:
             print('Error: ', e )
             raise
 
-database = profesor()        
+    def createProfesor(self, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras):
+
+        sql = "INSERT INTO profesor(id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras) VALUES ('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(0, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras)
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+
+        except Exception as e:
+            print('Error: ', e )
+            raise
+# database = profesor() 
+# database.createProfesor('00000000', 'profe@gmail.com', '11111111', '2222222', '01/01/2004', 'Masculino', 'Coronado centro', 'Josue', 'Angulo', 'Frino', 'Costarricense', 'jangulof', '390')       
 # database.getprofesor()
-database.getprofesorbyID(121)
-database.updateProfesorCedulaById(121, '000000000')
-database.updateProfesorCorreoById(121, 'academia@gmail.com')
-database.updateProfesorTelefonoById(121, '444444444')
-database.updateProfesorTelefonoCelularById(121, '0101101010')
-database.updateProfesorFechaNacimientoById(121, 'January 1st')
-database.updateProfesorSexoById(121, 'Prefiero no decirlo')
-database.updateProfesorDireccionById(121, 'Coronado')
-database.updateProfesorNombreById(121, 'sin nombre')
-database.updateProfesorApellidoPaternoById(121, 'Apellido 1')
-database.updateProfesorApellidoMaternoById(121, 'Apellido 2')
-database.updateProfesorNacionalidadById(121, 'Costarricense')
-database.updateProfesorUsuarioById(121, 'jangulof')
-database.updateProfesorIDCarrerasdById(121, '200')
-database.getprofesorbyID(121)
+

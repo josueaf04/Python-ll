@@ -10,7 +10,7 @@ class user:
         )
 
         self.cursor = self.connection.cursor()
-        print('**ESTOY EN LA BASE DE DATOS**\n')
+        # print('**ESTOY EN LA BASE DE DATOS**\n')
 
     def getuser(self): 
         sql = 'SELECT id, name, email, password FROM user'
@@ -73,8 +73,18 @@ class user:
 
         except Exception as e:
             print('Error: ', e )
-            raise                              
+            raise         
+
+    def createUser(self, name, email, password): 
+        sql = "INSERT INTO user(id, name, email, password) VALUES ('{}','{}', '{}', '{}')" .format(0, name, email, password)
+        try: 
+            self.cursor.execute(sql)
+            self.connection.commit() 
+
+        except Exception as e:
+            print('Error: ', e )
+            raise                               
              
-database = user()    
-database.getuser()   
-database.getuserbyID(25) 
+# database = user()    
+# database.getuser()   
+# database.getuserbyID(25) 

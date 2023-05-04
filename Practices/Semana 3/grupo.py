@@ -11,7 +11,7 @@ class grupo:
         )
 
         self.cursor = self.connection.cursor()
-        print('**ESTOY EN LA BASE DE DATOS**\n')
+        # print('**ESTOY EN LA BASE DE DATOS**\n')
 
     def getgrupo(self): 
         sql = 'SELECT id, nombre FROM grupo'
@@ -54,7 +54,19 @@ class grupo:
             print('Error: ', e )
             raise    
 
-database = grupo()
-database.getgrupo() 
-database.updateGrupoNombredById()       
-database.getgrupobyID(5)
+    def createGrupo(self, nombre): 
+        sql = "INSERT INTO grupo(id, nombre) VALUES ('{}','{}')" .format(0, nombre)
+        try: 
+            self.cursor.execute(sql)
+            self.connection.commit() 
+
+        except Exception as e:
+            print('Error: ', e )
+            raise          
+
+# database = grupo()
+# database.createGrupo('Python by no one')
+# database.getgrupo() 
+
+# database.updateGrupoNombredById()       
+# database.getgrupobyID(5)
