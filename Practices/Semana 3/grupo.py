@@ -44,8 +44,9 @@ class grupo:
             print('Error: ', e )
             raise       
 
-    def updateGrupoNombredById(self, id, nombre):
+    def updateGrupoNombreById(self, id, nombre):
         sql = "UPDATE grupo SET nombre='{}' WHERE id='{}'".format(nombre, id)
+        print(f'SE ACTUALIZO {id}')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -62,7 +63,19 @@ class grupo:
 
         except Exception as e:
             print('Error: ', e )
-            raise          
+            raise     
+
+    def deleteGrupoById(self, id):
+        
+        sql = "DELETE FROM `grupo`WHERE id='{}'".format(id)
+        print(f'SE ELIMINÓ: {id}\n')
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+
+        except Exception as e:
+            print('Error: ', e )
+            raise      
 
 # database = grupo()
 # database.createGrupo('Python by no one')

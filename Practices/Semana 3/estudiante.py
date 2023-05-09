@@ -11,7 +11,7 @@ class estudiante:
         )
 
         self.cursor = self.connection.cursor()  
-        print('**ESTOY CONECTADO A LA BASE DE DATOS**')  
+        # print('**ESTOY CONECTADO A LA BASE DE DATOS**')  
 
     def getestudiante(self): 
         sql = 'SELECT id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, idCarreras, usuario FROM estudiante'    
@@ -68,6 +68,7 @@ class estudiante:
 
     def updateEstudianteCedulaById(self, id, cedula):
         sql = "UPDATE estudiante SET cedula='{}' WHERE id='{}'".format(cedula, id)
+        print(f'SE ACTUALIZÓ LA CEDULA DE: {id}')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -78,6 +79,7 @@ class estudiante:
 
     def updateEstudianteCorreoById(self, id, correo):
         sql = "UPDATE estudiante SET correoelectronico='{}' WHERE id='{}'".format(correo, id)
+        print(f'SE ACTULIZO EL CORREO ELECTRONICO DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -88,6 +90,7 @@ class estudiante:
             
     def updateEstudianteTelefonoById(self, id, telefono):
         sql = "UPDATE estudiante SET telefono='{}' WHERE id='{}'".format(telefono, id)
+        print(f'SE ACTULIZO EL TELEFONO DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -98,6 +101,7 @@ class estudiante:
 
     def updateEstudianteTelefonoCelularById(self, id, telefonocelular):
         sql = "UPDATE estudiante SET telefonocelular='{}' WHERE id='{}'".format(telefonocelular, id)
+        print(f'SE ACTUALIZO EL TELEFONO CELULAR DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -108,6 +112,7 @@ class estudiante:
 
     def updateEstudianteFechaNacimientoById(self, id, fechanacimiento):
         sql = "UPDATE estudiante SET fechanacimiento='{}' WHERE id='{}'".format(fechanacimiento, id)
+        print(f'SE ACTUALIZO LA FECHA DE NACIMIENTO DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -118,6 +123,7 @@ class estudiante:
 
     def updateEstudianteSexoById(self, id, sexo):
         sql = "UPDATE estudiante SET sexo='{}' WHERE id='{}'".format(sexo, id)
+        print(f'SE ACTUALIZO EL SEXO DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -128,6 +134,7 @@ class estudiante:
     
     def updateEstudianteDireccionById(self, id, direccion):
         sql = "UPDATE estudiante SET direccion='{}' WHERE id='{}'".format(direccion, id)
+        print(f'SE ACTUALIZO LA DIRECCION DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -139,6 +146,7 @@ class estudiante:
     
     def updateEstudianteNombreById(self, id, nombre):
         sql = "UPDATE estudiante SET nombre='{}' WHERE id='{}'".format(nombre, id)
+        print(f'SE ACTUALIZO EL NOMBRE DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -150,6 +158,7 @@ class estudiante:
 
     def updateEstudianteApellidoPaternoById(self, id, apellidopaterno):
         sql = "UPDATE estudiante SET apellidopaterno='{}' WHERE id='{}'".format(apellidopaterno, id)
+        print(f'SE ACTUALIZO EL APELLIDO PATERNO DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -160,6 +169,7 @@ class estudiante:
 
     def updateEstudianteApellidoMaternoById(self, id, apellidomaterno):
         sql = "UPDATE estudiante SET apellidomaterno='{}' WHERE id='{}'".format(apellidomaterno, id)
+        print(f'SE ACTUALIZO EL APELLIDO MATERNO DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -170,6 +180,7 @@ class estudiante:
 
     def updateEstudianteNacionalidadById(self, id, nacionalidad):
         sql = "UPDATE estudiante SET nacionalidad='{}' WHERE id='{}'".format(nacionalidad, id)
+        print(f'SE ACTUALIZO LA NACIONALIDAD DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -180,6 +191,7 @@ class estudiante:
 
     def updateEstudianteIDCarrerasById(self, id, idcarreras):
         sql = "UPDATE estudiante SET idcarreras='{}' WHERE id='{}'".format(idcarreras, id)
+        print(f'SE ACTUALIZO EL ID CARRERAS DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -190,6 +202,7 @@ class estudiante:
 
     def updateEstudianteUsuariodById(self, id, usuario):
         sql = "UPDATE estudiante SET usuario='{}' WHERE id='{}'".format(usuario, id)
+        print(f'SE ACTUALIZO EL USUARIO DE: {id}\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -208,6 +221,18 @@ class estudiante:
         except Exception as e:
             print('Error: ', e )
             raise
+    
+    def deleteEstudianteById(self, id):
+        
+        sql = "DELETE FROM `estudiante`WHERE id='{}'".format(id)
+        print(f'SE ELIMINÓ: {id}\n')
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+
+        except Exception as e:
+            print('Error: ', e )
+            raise  
 
 
 # database = estudiante()

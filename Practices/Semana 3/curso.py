@@ -9,7 +9,7 @@ class Database:
             db = 'u484426513_apireact'#nombre de la base datos
         )
         self.cursor = self.connection.cursor()#crea la conexion hacia la base de datos
-        print('Estoy conectado a la base de datos')
+        # print('Estoy conectado a la base de datos')
 
     def getCurso(self):
         sql = 'SELECT id, nombre, descripcion, tiempo, usuario FROM curso'
@@ -50,60 +50,72 @@ class Database:
 
             except Exception as e:
                 print('Error: ', e )
-                raise        
-    
+                raise  
+
+    def getCursoByNombre(self, nombre):
+            sql = 'SELECT id, nombre, descripcion, tiempo, usuario FROM curso WHERE nombre like "%{}%"'.format(nombre)
+
+            try:#atrapa los errores y no permite que la aplicacion se congele o caiga
+                self.cursor.execute(sql)
+
+                curso = self.cursor.fetchall()#invoca todos los resultados que tenga
+                #print(curso)
+                #recorre el curso para ver los datos
+                for item in curso:
+                    print('id', item[0])
+                    print('nombre',item[1])
+                    print('descripcion',item[2])
+                    print('tiempo',item[3])
+                    print('usuario',item[4])
+                    print('-----------------\n')
+
+            except Exception as e:
+                print('Error: ', e )
+                raise  
+
     def updateCursoNombreById(self, id, nombre):
-        #print(id, nombre)
         sql = "UPDATE curso SET nombre='{}' WHERE id='{}'".format(nombre, id)
-
-        try:#atrapa los errores y no permite que la aplicacion se congele o caiga
+        print(f'SE ACTUALIZO EL NOMBRE DE: {id}')
+        try:
             self.cursor.execute(sql)
-            self.connection.commit()#commit a la base de datos(update, insert, delete)
-
+            self.connection.commit()
         except Exception as e:
             print('Error: ', e )
-            raise   
+            raise    
 
     def updateCursoDescripcionById(self, id, descripcion):
-        #print(id, nombre)
         sql = "UPDATE curso SET descripcion='{}' WHERE id='{}'".format(descripcion, id)
-
-        try:#atrapa los errores y no permite que la aplicacion se congele o caiga
+        print(f'SE ACTUALIZO LA DESCRIPCION DE: {id}')
+        try:
             self.cursor.execute(sql)
-            self.connection.commit()#commit a la base de datos(update, insert, delete)
+            self.connection.commit()
+        except Exception as e:
+            print('Error: ', e )
+            raise    
 
+    def updateCursoTiempoById(self, id, tiempo):
+        sql = "UPDATE curso SET tiempo='{}' WHERE id='{}'".format(tiempo, id)
+        print(f'SE ACTUALIZO EL TIEMPO DE: {id}')
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+        except Exception as e:
+            print('Error: ', e )
+            raise    
+    
+    def updateCursoUsuarioById(self, id, usuario):
+        sql = "UPDATE curso SET usuario='{}' WHERE id='{}'".format(usuario, id)
+        print(f'SE ACTUALIZO EL USUARIO DE: {id}')
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
         except Exception as e:
             print('Error: ', e )
             raise   
 
-    def updateCursoTiempoById(self, id, tiempo):
+    def createCurso(self, nombre, descripcion, tiempo, usuario):
         #print(id, tiempo)
-        sql = "UPDATE curso SET tiempo='{}' WHERE id='{}'".format(tiempo, id)
-
-        try:#atrapa los errores y no permite que la aplicacion se congele o caiga
-            self.cursor.execute(sql)
-            self.connection.commit()#commit a la base de datos(update, insert, delete)
-
-        except Exception as e:
-            print('Error: ', e )
-            raise           
-
-    def updateCursoUsuarioById(self, id, usuario):
-        #print(id, tiempo)
-        sql = "UPDATE curso SET usuario='{}' WHERE id='{}'".format(usuario, id)
-
-        try:#atrapa los errores y no permite que la aplicacion se congele o caiga
-            self.cursor.execute(sql)
-            self.connection.commit()#commit a la base de datos(update, insert, delete)
-
-        except Exception as e:
-            print('Error: ', e )
-            raise           
-
-#nombre='[value-2]',descripcion='[value-3]',tiempo='[value-4]',usuario='[value-5]'
-    def updateCursoTotalById(self, id, nombre, descripcion, tiempo, usuario):
-        #print(id, tiempo)
-        sql = "UPDATE curso SET nombre='{}', descripcion='{}', tiempo='{}', usuario='{}' WHERE id='{}'".format(nombre, descripcion, tiempo, usuario, id)
+        sql = "INSERT INTO curso(id, nombre, descripcion, tiempo, usuario) VALUES ('{}','{}','{}','{}','{}')".format(0, nombre, descripcion, tiempo, usuario)
 
         try:#atrapa los errores y no permite que la aplicacion se congele o caiga
             self.cursor.execute(sql)
@@ -112,28 +124,37 @@ class Database:
         except Exception as e:
             print('Error: ', e )
             raise  
+    
+    def deleteCursoById(self, id):
+        
+        sql = "DELETE FROM `curso`WHERE id='{}'".format(id)
+        print(f'SE ELIMINÓ: {id}\n')
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
 
+        except Exception as e:
+            print('Error: ', e )
+            raise  
 
-try:#atrapa los errores y no permite que la aplicacion se congele o caiga
-    database = Database()#crea una variable de tipo Database
-    database.getCurso()#invoca la funcion de obtener todos los cursos.
-    # database.getCursoById(399)#invoca la funcion de obtener un curso especifico
+# try:#atrapa los errores y no permite que la aplicacion se congele o caiga
+    # database = Database()#crea una variable de tipo Databased
+    # database.createCurso('Curso Python UCR', 'Python Avanzado','8 Semanas', 'Prof Mario')
+   # database.getCurso()#invoca la funcion de obtener todos los cursos.
+    # database.getCursoByNombre("2023")
+    #database.getCursoById(399)#invoca la funcion de obtener un curso especifico
     #(id, nombre)
-  
-    database.updateCursoNombreById(421, 'Python 2')
-    database.updateCursoDescripcionById(421,'Con el profesor Mario')
-    database.updateCursoTiempoById(421, 'Abril 2023')
-    database.updateCursoUsuarioById(421, 'jangulof')
-    database.getCursoById(421)
+    # database.updateCursoTotalById(399, 'Curso Abril Python nuevo test desc', 'Curso Avanzado', '8 Semanas Intensivo', 'Prof Mario J')
+    # database.getCursoById(399)
 
-except Exception as e:
-    print('Error: ', e )
-    raise 
+# except Exception as e:
+#     print('Error: ', e )
+#     raise 
 
 
         # $host = 'sql863.main-hosting.eu';
-        # $db_name = 'u484426513_apireact';
-        # $username = 'u484426513_apireact';
+        # $db_name = 'u484426513_databasereact';
+        # $username = 'u484426513_databasereact';
         # $password = 'i:![VW:3S#';        
 
        #[0], [1],      [2]      ,[3]    
@@ -148,3 +169,42 @@ except Exception as e:
 #UPDATE grupo SET nombre='[value-2]' WHERE id='[value-1]'
 #UPDATE profesor SET cedula='[value-2]',correoelectronico='[value-3]',telefono='[value-4]',telefonocelular='[value-5]',fechanacimiento='[value-6]',sexo='[value-7]',direccion='[value-8]',nombre='[value-9]',apellidopaterno='[value-10]',apellidomaterno='[value-11]',nacionalidad='[value-12]',usuario='[value-13]',idcarreras='[value-14]' WHERE id='[value-1]'
 #UPDATE user SET name='[value-2]',email='[value-3]',password='[value-4]' WHERE  id='[value-1]'
+
+
+# INSERT INTO user(id, name, email, password) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]')
+# INSERT INTO profesor(id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]','[value-12]','[value-13]','[value-14]')
+# INSERT INTO grupo(id, nombre) VALUES ('[value-1]','[value-2]')
+# INSERT INTO estudiante(id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, idCarreras, usuario) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]','[value-12]','[value-13]','[value-14]')
+# INSERT INTO curso(id, nombre, descripcion, tiempo, usuario) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')
+
+# Menu
+#     1-Curso
+#         a-Consultar datos general (Lista Grande)
+#         b-Consultar dato individual por ejemplo database.getCursoById(399)
+#         c-Actualizar un registro por medio del identificador o id
+#         d-Crear un registro
+#         e-Elimar un registro por ID
+#     2-Estudiante
+#         a-Consultar datos general (Lista Grande)
+#         b-Consultar dato individual
+#         c-Actualizar un registro por medio del identificador o id
+#         d-Crear un registro
+#         e-Elimar un registro por ID
+#     3-Profesor
+#         a-Consultar datos general (Lista Grande)
+#         b-Consultar dato individual
+#         c-Actualizar un registro por medio del identificador o id
+#         d-Crear un registro
+#         e-Elimar un registro por ID
+#     4-Grupo
+#         a-Consultar datos general (Lista Grande)
+#         b-Consultar dato individual
+#         c-Actualizar un registro por medio del identificador o id
+#         d-Crear un registro
+#         e-Elimar un registro por ID
+
+
+# Estudiante, con base a los atributos que tiene el database se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
+# Profesor, con base a los atributos que tiene el database se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
+# Grupo, con base a los atributos que tiene el database se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
+# Curso, con base a los atributos que tiene el database se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.

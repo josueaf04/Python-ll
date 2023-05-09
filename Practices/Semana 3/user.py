@@ -47,6 +47,7 @@ class user:
 
     def updateUserNameById(self, id, name):
         sql = "UPDATE user SET name='{}' WHERE id='{}'".format(name, id)
+        print(f'SE ACTUALIZO NAME DE: {id}')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -57,6 +58,7 @@ class user:
 
     def updateUserEmailById(self, id, email):
         sql = "UPDATE user SET email='{}' WHERE id='{}'".format(email, id)
+        print(f'SE ACTUALIZO EMAIL DE: {id}')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -67,6 +69,7 @@ class user:
 
     def updateUserPasswordById(self, id, password):
         sql = "UPDATE user SET password='{}' WHERE id='{}'".format(password, id)
+        print(f'SE ACTUALIZO PASSWORD DE: {id}')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -83,7 +86,19 @@ class user:
 
         except Exception as e:
             print('Error: ', e )
-            raise                               
+            raise        
+
+    def deleteUserById(self, id):
+        
+        sql = "DELETE FROM `user`WHERE id='{}'".format(id)
+        print(f'SE ELIMINÓ: {id}\n')
+        try:
+            self.cursor.execute(sql)
+            self.connection.commit()
+
+        except Exception as e:
+            print('Error: ', e )
+            raise                         
              
 # database = user()    
 # database.getuser()   
