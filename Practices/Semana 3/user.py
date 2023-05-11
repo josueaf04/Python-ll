@@ -80,6 +80,7 @@ class user:
 
     def createUser(self, name, email, password): 
         sql = "INSERT INTO user(id, name, email, password) VALUES ('{}','{}', '{}', '{}')" .format(0, name, email, password)
+        print(f'SE HA CREADO: {name}')
         try: 
             self.cursor.execute(sql)
             self.connection.commit() 

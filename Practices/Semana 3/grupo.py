@@ -46,7 +46,7 @@ class grupo:
 
     def updateGrupoNombreById(self, id, nombre):
         sql = "UPDATE grupo SET nombre='{}' WHERE id='{}'".format(nombre, id)
-        print(f'SE ACTUALIZO {id}')
+        print(f'SE ACTUALIZO EL NOMBRE DE: {id}')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -57,6 +57,7 @@ class grupo:
 
     def createGrupo(self, nombre): 
         sql = "INSERT INTO grupo(id, nombre) VALUES ('{}','{}')" .format(0, nombre)
+        print(f'SE HA CREADO {nombre}')
         try: 
             self.cursor.execute(sql)
             self.connection.commit() 

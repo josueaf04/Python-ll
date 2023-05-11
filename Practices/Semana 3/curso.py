@@ -116,7 +116,7 @@ class Database:
     def createCurso(self, nombre, descripcion, tiempo, usuario):
         #print(id, tiempo)
         sql = "INSERT INTO curso(id, nombre, descripcion, tiempo, usuario) VALUES ('{}','{}','{}','{}','{}')".format(0, nombre, descripcion, tiempo, usuario)
-
+        print(f'SE HA CREADO: {nombre}')
         try:#atrapa los errores y no permite que la aplicacion se congele o caiga
             self.cursor.execute(sql)
             self.connection.commit()#commit a la base de datos(update, insert, delete)
