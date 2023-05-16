@@ -47,47 +47,67 @@ class user:
 
     def updateUserNameById(self, id, name):
         sql = "UPDATE user SET name='{}' WHERE id='{}'".format(name, id)
-        print(f'SE ACTUALIZO NAME DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise  
+        if len(name) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(name) >= 1:
+            print(f'SE ACTUALIZO NAME DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise  
 
     def updateUserEmailById(self, id, email):
         sql = "UPDATE user SET email='{}' WHERE id='{}'".format(email, id)
-        print(f'SE ACTUALIZO EMAIL DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise 
+        if len(email) < 1:
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(email) >= 1:
+            print(f'SE ACTUALIZO EMAIL DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise 
 
     def updateUserPasswordById(self, id, password):
         sql = "UPDATE user SET password='{}' WHERE id='{}'".format(password, id)
-        print(f'SE ACTUALIZO PASSWORD DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise         
+        if len(password) < 1:
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(password) >= 1: 
+            print(f'SE ACTUALIZO PASSWORD DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise         
 
     def createUser(self, name, email, password): 
         sql = "INSERT INTO user(id, name, email, password) VALUES ('{}','{}', '{}', '{}')" .format(0, name, email, password)
-        print(f'SE HA CREADO: {name}')
-        try: 
-            self.cursor.execute(sql)
-            self.connection.commit() 
 
-        except Exception as e:
-            print('Error: ', e )
-            raise        
+        if len(name) < 1 or len(email) < 1 or len(password) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(name) >= 1 and len(email) >= 1 and len(password) >= 1: 
+            print(f'SE HA CREADO: {name}\n')
+            try: 
+                self.cursor.execute(sql)
+                self.connection.commit() 
+
+            except Exception as e:
+                print('Error: ', e )
+                raise        
 
     def deleteUserById(self, id):
         
@@ -99,8 +119,4 @@ class user:
 
         except Exception as e:
             print('Error: ', e )
-            raise                         
-             
-# database = user()    
-# database.getuser()   
-# database.getuserbyID(25) 
+            raise                          

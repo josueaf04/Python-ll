@@ -69,165 +69,235 @@ class profesor:
             
     def updateProfesorCedulaById(self, id, cedula):
         sql = "UPDATE profesor SET cedula='{}' WHERE id='{}'".format(cedula, id)
-        print(f'SE ACTUALIZÓ LA CEDULA DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise       
+        if len(cedula) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(cedula) >= 1:
+            print(f'SE ACTUALIZÓ LA CEDULA DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise       
 
     def updateProfesorCorreoById(self, id, correo):
         sql = "UPDATE profesor SET correoelectronico='{}' WHERE id='{}'".format(correo, id)
-        print(f'SE ACTULIZO EL CORREO ELECTRONICO DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise                   
+        if len(correo) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(correo) >= 1:
+            print(f'SE ACTULIZO EL CORREO ELECTRONICO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise                   
             
     def updateProfesorTelefonoById(self, id, telefono):
         sql = "UPDATE profesor SET telefono='{}' WHERE id='{}'".format(telefono, id)
-        print(f'SE ACTULIZO EL TELEFONO DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise   
+        if len(telefono) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(telefono) >= 1: 
+            print(f'SE ACTULIZO EL TELEFONO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise   
 
     def updateProfesorTelefonoCelularById(self, id, telefonocelular):
         sql = "UPDATE profesor SET telefonocelular='{}' WHERE id='{}'".format(telefonocelular, id)
-        print(f'SE ACTUALIZO EL TELEFONO CELULAR DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise   
+        if len(telefonocelular) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(telefonocelular) >= 1: 
+            print(f'SE ACTUALIZO EL TELEFONO CELULAR DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise   
 
     def updateProfesorFechaNacimientoById(self, id, fechanacimiento):
         sql = "UPDATE profesor SET fechanacimiento='{}' WHERE id='{}'".format(fechanacimiento, id)
-        print(f'SE ACTUALIZO LA FECHA DE NACIMIENTO DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise   
+        if len(fechanacimiento) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+ 
+        elif len(fechanacimiento) >= 1: 
+            print(f'SE ACTUALIZO LA FECHA DE NACIMIENTO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise   
 
     def updateProfesorSexoById(self, id, sexo):
         sql = "UPDATE profesor SET sexo='{}' WHERE id='{}'".format(sexo, id)
-        print(f'SE ACTUALIZO EL SEXO DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise   
+        if len(sexo) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(sexo) >= 1: 
+            print(f'SE ACTUALIZO EL SEXO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise   
     
     def updateProfesorDireccionById(self, id, direccion):
         sql = "UPDATE profesor SET direccion='{}' WHERE id='{}'".format(direccion, id)
-        print(f'SE ACTUALIZO LA DIRECCION DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise 
+        if len(direccion) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(direccion) >= 1: 
+            print(f'SE ACTUALIZO LA DIRECCION DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise 
 
     
     def updateProfesorNombreById(self, id, nombre):
         sql = "UPDATE profesor SET nombre='{}' WHERE id='{}'".format(nombre, id)
-        print(f'SE ACTUALIZO EL NOMBRE DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise 
+        if len(nombre) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(nombre) >=1:
+            print(f'SE ACTUALIZO EL NOMBRE DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise 
 
 
     def updateProfesorApellidoPaternoById(self, id, apellidopaterno):
         sql = "UPDATE profesor SET apellidopaterno='{}' WHERE id='{}'".format(apellidopaterno, id)
-        print(f'SE ACTUALIZO EL APELLIDO PATERNO DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise 
+        if len(apellidopaterno) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(apellidopaterno) >= 1:
+            print(f'SE ACTUALIZO EL APELLIDO PATERNO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise 
 
     def updateProfesorApellidoMaternoById(self, id, apellidomaterno):
         sql = "UPDATE profesor SET apellidomaterno='{}' WHERE id='{}'".format(apellidomaterno, id)
-        print(f'SE ACTUALIZO EL APELLIDO MATERNO DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise 
+        if len(apellidomaterno) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(apellidomaterno) >= 1: 
+            print(f'SE ACTUALIZO EL APELLIDO MATERNO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise 
 
     def updateProfesorNacionalidadById(self, id, nacionalidad):
         sql = "UPDATE profesor SET nacionalidad='{}' WHERE id='{}'".format(nacionalidad, id)
-        print(f'SE ACTUALIZO LA NACIONALIDAD DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise
+        if len(nacionalidad) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(nacionalidad) >= 1:
+            print(f'SE ACTUALIZO LA NACIONALIDAD DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise
 
     def updateProfesorUsuarioById(self, id, usuario):
         sql = "UPDATE profesor SET usuario='{}' WHERE id='{}'".format(usuario, id)
-        print(f'SE ACTUALIZO EL USUARIO DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise
+        if len(usuario) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(usuario) >= 1: 
+            print(f'SE ACTUALIZO EL USUARIO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise
 
     def updateProfesorIDCarrerasdById(self, id, idcarreras):
         sql = "UPDATE profesor SET idcarreras='{}' WHERE id='{}'".format(idcarreras, id)
-        print(f'SE ACTUALIZO EL ID CARRERAS DE: {id}\n')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise
+        if len(idcarreras) < 1:
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(idcarreras) >= 1: 
+            print(f'SE ACTUALIZO EL ID CARRERAS DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise
 
     def createProfesor(self, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras):
 
         sql = "INSERT INTO profesor(id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras) VALUES ('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(0, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras)
-        print(f'SE HA CREADO: {nombre}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise
+        if len(cedula)< 1 or len(correoelectronico)< 1 or len(telefono)< 1 or len(telefonocelular)< 1 or len(fechanacimiento)< 1 or len(sexo)< 1 or len(direccion)< 1 or len(nombre)< 1 or len(apellidopaterno)< 1 or len(apellidomaterno)< 1 or len(nacionalidad)< 1 or len(usuario)< 1 or len(idcarreras)< 1:
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(cedula)>= 1 and len(correoelectronico)>= 1 and len(telefono)>= 1 and len(telefonocelular)>= 1 and len(fechanacimiento)>= 1 and len(sexo)>= 1 and len(direccion)>= 1 and len(nombre)>= 1 and len(apellidopaterno)>= 1 and len(apellidomaterno)>= 1 and len(nacionalidad)>= 1 and len(usuario)>= 1 and len(idcarreras)>= 1:
+            print(f'SE HA CREADO: {nombre}')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise
 
     def deleteProfesorById(self, id):
         
         sql = "DELETE FROM `profesor`WHERE id='{}'".format(id)
-        print(f'SE ELIMINÓ: {id}\n')
+        print(f'SE ELIMINÓ: {id}')
         try:
             self.cursor.execute(sql)
             self.connection.commit()

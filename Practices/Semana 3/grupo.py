@@ -46,30 +46,40 @@ class grupo:
 
     def updateGrupoNombreById(self, id, nombre):
         sql = "UPDATE grupo SET nombre='{}' WHERE id='{}'".format(nombre, id)
-        print(f'SE ACTUALIZO EL NOMBRE DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
 
-        except Exception as e:
-            print('Error: ', e )
-            raise    
+        if len(nombre) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(nombre) >= 1: 
+            print(f'SE ACTUALIZO EL NOMBRE DE: {id}')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+
+            except Exception as e:
+                print('Error: ', e )
+                raise    
 
     def createGrupo(self, nombre): 
         sql = "INSERT INTO grupo(id, nombre) VALUES ('{}','{}')" .format(0, nombre)
-        print(f'SE HA CREADO {nombre}')
-        try: 
-            self.cursor.execute(sql)
-            self.connection.commit() 
 
-        except Exception as e:
-            print('Error: ', e )
-            raise     
+        if len(nombre) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+
+        elif len(nombre) >= 1: 
+            print(f'SE HA CREADO: {nombre}\n')
+            try: 
+                self.cursor.execute(sql)
+                self.connection.commit() 
+
+            except Exception as e:
+                print('Error: ', e )
+                raise     
 
     def deleteGrupoById(self, id):
         
         sql = "DELETE FROM `grupo`WHERE id='{}'".format(id)
-        print(f'SE ELIMINÓ: {id}\n')
+        print(f'SE ELIMINÓ: {id}')
         try:
             self.cursor.execute(sql)
             self.connection.commit()

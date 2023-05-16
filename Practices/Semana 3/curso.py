@@ -10,6 +10,9 @@ class Database:
         )
         self.cursor = self.connection.cursor()#crea la conexion hacia la base de datos
         # print('Estoy conectado a la base de datos')
+    
+    # def inputvalidation(self, nombre, descripcion, tiempo, usuario): 
+    #     self
 
     def getCurso(self):
         sql = 'SELECT id, nombre, descripcion, tiempo, usuario FROM curso'
@@ -26,7 +29,7 @@ class Database:
                 print('descripcion',item[2])
                 print('tiempo',item[3])
                 print('usuario',item[4])
-                print('-----------------\n')
+                print('=======================>\n')
 
         except Exception as e:
             print('Error: ', e )
@@ -46,28 +49,7 @@ class Database:
                 print('descripcion',curso[2])
                 print('tiempo',curso[3])
                 print('usuario',curso[4])
-                print('-----------------\n')
-
-            except Exception as e:
-                print('Error: ', e )
-                raise  
-
-    def getCursoByNombre(self, nombre):
-            sql = 'SELECT id, nombre, descripcion, tiempo, usuario FROM curso WHERE nombre like "%{}%"'.format(nombre)
-
-            try:#atrapa los errores y no permite que la aplicacion se congele o caiga
-                self.cursor.execute(sql)
-
-                curso = self.cursor.fetchall()#invoca todos los resultados que tenga
-                #print(curso)
-                #recorre el curso para ver los datos
-                for item in curso:
-                    print('id', item[0])
-                    print('nombre',item[1])
-                    print('descripcion',item[2])
-                    print('tiempo',item[3])
-                    print('usuario',item[4])
-                    print('-----------------\n')
+                print('=======================>\n')
 
             except Exception as e:
                 print('Error: ', e )
@@ -75,55 +57,80 @@ class Database:
 
     def updateCursoNombreById(self, id, nombre):
         sql = "UPDATE curso SET nombre='{}' WHERE id='{}'".format(nombre, id)
-        print(f'SE ACTUALIZO EL NOMBRE DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
-        except Exception as e:
-            print('Error: ', e )
-            raise    
+
+        if len(nombre) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(nombre) >= 1: 
+            print(f'SE ACTUALIZO EL NOMBRE DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+            except Exception as e:
+                print('Error: ', e )
+                raise    
 
     def updateCursoDescripcionById(self, id, descripcion):
         sql = "UPDATE curso SET descripcion='{}' WHERE id='{}'".format(descripcion, id)
-        print(f'SE ACTUALIZO LA DESCRIPCION DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
-        except Exception as e:
-            print('Error: ', e )
-            raise    
+
+        if len(descripcion) < 1:
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+            
+        elif len(descripcion) >= 1: 
+            print(f'SE ACTUALIZO LA DESCRIPCION DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+            except Exception as e:
+                print('Error: ', e )
+                raise    
 
     def updateCursoTiempoById(self, id, tiempo):
         sql = "UPDATE curso SET tiempo='{}' WHERE id='{}'".format(tiempo, id)
-        print(f'SE ACTUALIZO EL TIEMPO DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
-        except Exception as e:
-            print('Error: ', e )
-            raise    
-    
+
+        if len(tiempo) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(tiempo) >= 1: 
+            print(f'SE ACTUALIZO EL TIEMPO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+            except Exception as e:
+                print('Error: ', e )
+                raise    
+        
     def updateCursoUsuarioById(self, id, usuario):
         sql = "UPDATE curso SET usuario='{}' WHERE id='{}'".format(usuario, id)
-        print(f'SE ACTUALIZO EL USUARIO DE: {id}')
-        try:
-            self.cursor.execute(sql)
-            self.connection.commit()
-        except Exception as e:
-            print('Error: ', e )
-            raise   
+
+        if len(usuario) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(usuario) >= 1: 
+            print(f'SE ACTUALIZO EL USUARIO DE: {id}\n')
+            try:
+                self.cursor.execute(sql)
+                self.connection.commit()
+            except Exception as e:
+                print('Error: ', e )
+                raise   
 
     def createCurso(self, nombre, descripcion, tiempo, usuario):
         #print(id, tiempo)
         sql = "INSERT INTO curso(id, nombre, descripcion, tiempo, usuario) VALUES ('{}','{}','{}','{}','{}')".format(0, nombre, descripcion, tiempo, usuario)
-        print(f'SE HA CREADO: {nombre}')
-        try:#atrapa los errores y no permite que la aplicacion se congele o caiga
-            self.cursor.execute(sql)
-            self.connection.commit()#commit a la base de datos(update, insert, delete)
 
-        except Exception as e:
-            print('Error: ', e )
-            raise  
+        if len(nombre) < 1 or len(descripcion) < 1 or len(tiempo) < 1 or len(usuario) < 1: 
+            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        
+        elif len(nombre) >= 1 and len(descripcion) >= 1 and len(tiempo) >= 1 and len(usuario) >= 1: 
+            print(f'SE HA CREADO: {nombre}\n')
+            try:#atrapa los errores y no permite que la aplicacion se congele o caiga
+                self.cursor.execute(sql)
+                self.connection.commit()#commit a la base de datos(update, insert, delete)
+
+            except Exception as e:
+                print('Error: ', e )
+                raise  
     
     def deleteCursoById(self, id):
         
