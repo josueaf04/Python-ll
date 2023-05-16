@@ -48,10 +48,15 @@ class grupo:
         sql = "UPDATE grupo SET nombre='{}' WHERE id='{}'".format(nombre, id)
 
         if len(nombre) < 1: 
-            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+            print('=======================>\n')
+            print('NO SE PUDO ACTUALIZAR NOMBRE **ESPACIOS VACIOS EXISTENTES**\n')
+            print('=======================>\n')
 
         elif len(nombre) >= 1: 
-            print(f'SE ACTUALIZO EL NOMBRE DE: {id}')
+            print('=======================>\n')
+            print(f'SE ACTUALIZO EL NOMBRE DE: {id}\n')
+            print('=======================>\n')
+
             try:
                 self.cursor.execute(sql)
                 self.connection.commit()
@@ -64,10 +69,14 @@ class grupo:
         sql = "INSERT INTO grupo(id, nombre) VALUES ('{}','{}')" .format(0, nombre)
 
         if len(nombre) < 1: 
-            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+            print('=======================>\n')
+            print('NO SE PUDO CREAR EL REGISTRO **ESPACIOS VACIOS EXISTENTES**\n')
+            print('=======================>\n')
 
         elif len(nombre) >= 1: 
+            print('=======================>\n')
             print(f'SE HA CREADO: {nombre}\n')
+            print('=======================>\n')
             try: 
                 self.cursor.execute(sql)
                 self.connection.commit() 
@@ -79,7 +88,9 @@ class grupo:
     def deleteGrupoById(self, id):
         
         sql = "DELETE FROM `grupo`WHERE id='{}'".format(id)
-        print(f'SE ELIMINÓ: {id}')
+        print('=======================>\n')
+        print(f'SE ELIMINÓ: {id}\n')
+        print('=======================>\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
@@ -87,10 +98,3 @@ class grupo:
         except Exception as e:
             print('Error: ', e )
             raise      
-
-# database = grupo()
-# database.createGrupo('Python by no one')
-# database.getgrupo() 
-
-# database.updateGrupoNombredById()       
-# database.getgrupobyID(5)

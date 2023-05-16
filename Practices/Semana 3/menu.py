@@ -6,9 +6,6 @@ import user as u
 import os
 
 print('BIENVENIDO/A\n\nDIGITE UN NUMERO DEL 1-6 PARA VER EL MENU')
-# print('MENU DE OPCIONES\n')
-# print('1 : CURSO\n2 : ESTUDIANTE\n3 : PROFESOR\n4 : GRUPO\n5 : USER\n6 : SALIR\n')
-
 choices = [1, 2, 3, 4, 5, 6]
 choice = int(input())
 print("")
@@ -16,7 +13,7 @@ print("")
 while choice in choices:
     
     userIn = True
-    print('MENU DE OPCIONES\n')
+    print('MENU PRINCIPAL\n')
     print('1 : CURSO\n2 : ESTUDIANTE\n3 : PROFESOR\n4 : GRUPO\n5 : USER\n6 : SALIR\n')
     choice = int(input('QUÉ LISTA DESEA VER: \n'))
 
@@ -453,10 +450,11 @@ while choice in choices:
                 grupo.getgrupobyID(grupoid)
 
             elif grupochoice == 3: 
+            
                 os.system("cls")
                 print('**GRUPO**\n')
                 print('**ACTUALIZAR UN REGISTRO POR ID**\n') 
-                updategrupoid = int(input('QUE ID DESEA ACTUALIZAR: 3'))
+                updategrupoid = int(input('QUE ID DESEA ACTUALIZAR: '))
                 updategruponame = input(f'QUE NOMBRE DESEA ASIGNARLE: ')
                 print("")
                 grupo.updateGrupoNombreById(updategrupoid, updategruponame)

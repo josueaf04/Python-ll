@@ -59,10 +59,14 @@ class Database:
         sql = "UPDATE curso SET nombre='{}' WHERE id='{}'".format(nombre, id)
 
         if len(nombre) < 1: 
-            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+            print('=======================>\n')
+            print('NO SE PUDO ACTUALIZAR NOMBRE **ESPACIOS VACIOS EXISTENTES**\n')
+            print('=======================>\n')
         
         elif len(nombre) >= 1: 
+            print('=======================>\n')
             print(f'SE ACTUALIZO EL NOMBRE DE: {id}\n')
+            print('=======================>\n')
             try:
                 self.cursor.execute(sql)
                 self.connection.commit()
@@ -74,10 +78,14 @@ class Database:
         sql = "UPDATE curso SET descripcion='{}' WHERE id='{}'".format(descripcion, id)
 
         if len(descripcion) < 1:
-            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+            print('=======================>\n')
+            print('NO SE PUDO ACTUALIZAR DESCRIPCION **ESPACIOS VACIOS EXISTENTES**\n')
+            print('=======================>\n')
             
         elif len(descripcion) >= 1: 
+            print('=======================>\n')
             print(f'SE ACTUALIZO LA DESCRIPCION DE: {id}\n')
+            print('=======================>\n')
             try:
                 self.cursor.execute(sql)
                 self.connection.commit()
@@ -89,10 +97,14 @@ class Database:
         sql = "UPDATE curso SET tiempo='{}' WHERE id='{}'".format(tiempo, id)
 
         if len(tiempo) < 1: 
-            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+            print('=======================>\n')
+            print('NO SE PUDO ACTUALIZAR TIEMPO **ESPACIOS VACIOS EXISTENTES**\n')
+            print('=======================>\n')
         
         elif len(tiempo) >= 1: 
+            print('=======================>\n')
             print(f'SE ACTUALIZO EL TIEMPO DE: {id}\n')
+            print('=======================>\n')
             try:
                 self.cursor.execute(sql)
                 self.connection.commit()
@@ -104,10 +116,14 @@ class Database:
         sql = "UPDATE curso SET usuario='{}' WHERE id='{}'".format(usuario, id)
 
         if len(usuario) < 1: 
-            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+            print('=======================>\n')
+            print('NO SE PUDO ACTUALIZAR USUARIO **ESPACIOS VACIOS EXISTENTES**\n')
+            print('=======================>\n')
         
         elif len(usuario) >= 1: 
+            print('=======================>\n')
             print(f'SE ACTUALIZO EL USUARIO DE: {id}\n')
+            print('=======================>\n')
             try:
                 self.cursor.execute(sql)
                 self.connection.commit()
@@ -119,11 +135,15 @@ class Database:
         #print(id, tiempo)
         sql = "INSERT INTO curso(id, nombre, descripcion, tiempo, usuario) VALUES ('{}','{}','{}','{}','{}')".format(0, nombre, descripcion, tiempo, usuario)
 
-        if len(nombre) < 1 or len(descripcion) < 1 or len(tiempo) < 1 or len(usuario) < 1: 
-            print('ERROR! FAVOR NO DEJAR ESPACIOS VACIOS\n')
+        if len(nombre) < 1 or len(descripcion) < 1 or len(tiempo) < 1 or len(usuario) < 1:
+            print('=======================>\n') 
+            print('NO SE PUDO CREAR EL REGISTRO **ESPACIOS VACIOS EXISTENTES**\n')
+            print('=======================>\n')
         
         elif len(nombre) >= 1 and len(descripcion) >= 1 and len(tiempo) >= 1 and len(usuario) >= 1: 
+            print('=======================>\n')
             print(f'SE HA CREADO: {nombre}\n')
+            print('=======================>\n')
             try:#atrapa los errores y no permite que la aplicacion se congele o caiga
                 self.cursor.execute(sql)
                 self.connection.commit()#commit a la base de datos(update, insert, delete)
@@ -135,7 +155,9 @@ class Database:
     def deleteCursoById(self, id):
         
         sql = "DELETE FROM `curso`WHERE id='{}'".format(id)
+        print('=======================>\n')
         print(f'SE ELIMINÓ: {id}\n')
+        print('=======================>\n')
         try:
             self.cursor.execute(sql)
             self.connection.commit()
