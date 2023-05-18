@@ -14,7 +14,8 @@ class profesor:
 
     def getprofesor(self): 
         sql = 'SELECT id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras FROM profesor'
-        
+        print('=======================>\n')
+
         try:
             self.cursor.execute(sql)
             profesor = self.cursor.fetchall()
@@ -42,6 +43,7 @@ class profesor:
 
     def getprofesorbyID(self, id): 
         sql = 'SELECT id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, usuario, idcarreras FROM profesor WHERE id={}'.format(id)
+        print('=======================>\n')
 
         try: 
             self.cursor.execute(sql)

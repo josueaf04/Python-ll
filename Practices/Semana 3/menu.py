@@ -5,13 +5,14 @@ import grupo as g
 import user as u
 import os
 
-print('BIENVENIDO/A\n\nDIGITE UN NUMERO DEL 1-6 PARA VER EL MENU')
+print('BIENVENIDO/A\n\nDIGITE UN NUMERO DEL 1-6 PARA VER EL MENU PRINCIPAL')
 choices = [1, 2, 3, 4, 5, 6]
 choice = int(input())
 print("")
 
 while choice in choices:
     
+    os.system("cls")
     userIn = True
     print('MENU PRINCIPAL\n')
     print('1 : CURSO\n2 : ESTUDIANTE\n3 : PROFESOR\n4 : GRUPO\n5 : USER\n6 : SALIR\n')

@@ -15,6 +15,8 @@ class estudiante:
 
     def getestudiante(self): 
         sql = 'SELECT id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, idCarreras, usuario FROM estudiante'    
+        print('=======================>\n')
+
         try: 
             self.cursor.execute(sql)
             estudiante = self.cursor.fetchall()
@@ -41,6 +43,7 @@ class estudiante:
 
     def getestudiantebyID(self, id): 
         sql = 'SELECT id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, idCarreras, usuario FROM estudiante WHERE id={}'.format(id)
+        print('=======================>\n')
 
         try: 
             self.cursor.execute(sql)
@@ -340,7 +343,7 @@ class estudiante:
 
         elif len(cedula)>= 1 and len(correoelectronico)>= 1 and len(telefono)>= 1 and len(telefonocelular)>= 1 and len(fechanacimiento)>= 1 and len(sexo)>= 1 and len(direccion)>= 1 and len(nombre)>= 1 and len(apellidopaterno)>= 1 and len(apellidomaterno)>= 1 and len(nacionalidad)>= 1 and len(idcarreras)>= 1 and len(usuario)>= 1:
             print('=======================>\n')
-            print(f'SE HA CREADO: {nombre}')
+            print(f'SE HA CREADO: {nombre}\n')
             print('=======================>\n')
             try:
                 self.cursor.execute(sql)
@@ -354,7 +357,7 @@ class estudiante:
         
         sql = "DELETE FROM `estudiante`WHERE id='{}'".format(id)
         print('=======================>\n')
-        print(f'SE ELIMINÓ: {id}')
+        print(f'SE ELIMINÓ: {id}\n')
         print('=======================>\n')
         try:
             self.cursor.execute(sql)

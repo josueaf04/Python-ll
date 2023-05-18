@@ -14,6 +14,7 @@ class user:
 
     def getuser(self): 
         sql = 'SELECT id, name, email, password FROM user'
+        print('=======================>\n')
 
         try: 
             self.cursor.execute(sql)
@@ -30,6 +31,7 @@ class user:
             raise                   
     def getuserbyID(self, id): 
         sql = 'SELECT id, name, email, password FROM user  WHERE id={}'.format(id)
+        print('=======================>\n')
 
         try: 
             self.cursor.execute(sql)

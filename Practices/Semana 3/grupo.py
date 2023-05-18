@@ -15,6 +15,7 @@ class grupo:
 
     def getgrupo(self): 
         sql = 'SELECT id, nombre FROM grupo'
+        print('=======================>\n')
 
         try: 
             self.cursor.execute(sql)
@@ -31,11 +32,12 @@ class grupo:
     
     def getgrupobyID(self, id): 
         sql = 'SELECT id, nombre FROM grupo WHERE id={}'.format(id)
+        print('=======================>\n')
 
         try: 
             self.cursor.execute(sql)
-            user = self.cursor.fetchall()
-            for i in user:
+            grupo = self.cursor.fetchall()
+            for i in grupo:
                 print('ID: ', i[0])
                 print(f'NOMBRE: {i[1]}\n')
                 print('=======================>\n')
