@@ -6,25 +6,27 @@ import user as u
 import os
 
 print('BIENVENIDO/A\n\nDIGITE UN NUMERO DEL 1-6 PARA VER EL MENU PRINCIPAL')
+# OPCIONES QUE ENTRAN EN EL LOOP
 choices = [1, 2, 3, 4, 5, 6]
 choice = int(input())
 print("")
-
+# WHILE LOOP 
 while choice in choices:
     
     os.system("cls")
     userIn = True
+# MENÚ PRINCIPAL E INPUT DEL USUARIO
     print('MENU PRINCIPAL\n')
     print('1 : CURSO\n2 : ESTUDIANTE\n3 : PROFESOR\n4 : GRUPO\n5 : USER\n6 : SALIR\n')
     choice = int(input('QUÉ LISTA DESEA VER: \n'))
-
+# INPUT = 1 SE EJECUTA LA CLASE 'curso' DEL MÓDULO 'curso', CON SU DEBIDO MENU DE OPCIONES.  
     if choice == 1: 
         os.system("cls")
         while userIn: 
             print('OPCIONES **CURSO**\n')
             print('1 : CONSULTAR TODOS LOS DATOS\n2 : CONSULTAR DATO POR ID\n3 : ACTUALIZAR UN REGISTRO POR ID\n4 : CREAR UN REGISTRO\n5 : ELIMINAR UN REGISTRO POR ID\n6 : VOLVER AL MENU PRINCIPAL\n')
             cursochoice = int(input('QUÉ ACCION DESEA REALIZAR?\n'))
-            curso = c.Database()
+            curso = c.curso()
         
             if cursochoice == 1: 
                 os.system("cls")
@@ -101,7 +103,7 @@ while choice in choices:
             elif cursochoice == 6: 
                 userIn = False
                 os.system("cls")
-
+# INPUT = 2 SE EJECUTA LA CLASE 'estudiante' DEL MÓDULO 'estudiante', CON SU DEBIDO MENÚ DE OPCIONES.
     elif choice == 2: 
         os.system("cls")
         while userIn: 
@@ -264,7 +266,7 @@ while choice in choices:
             elif estudiantechoice == 6: 
                 os.system("cls")
                 userIn = False
-
+# INPUT = 3 SE EJECUTA LA CLASE'profesor' DEL MÓDULO 'profesor', CON SU DEBIDO MENU DE OPCIONES. 
     elif choice == 3:
         os.system("cls")
         while userIn: 
@@ -427,7 +429,7 @@ while choice in choices:
             elif profesorchoice == 6: 
                 os.system("cls")
                 userIn = False
-                
+# INPUT = 4 SE EJECUTA LA CLASE 'grupo' DEL MÓDULO 'grupo', CON SU DEBIDO MENU DE OPCIONES. 
     elif choice == 4: 
         os.system("cls")
         while userIn: 
@@ -479,7 +481,7 @@ while choice in choices:
             elif grupochoice == 6: 
                 os.system("cls")
                 userIn = False
-            
+# INPUT = 5 SE EJECUTA LA CLASE 'user' DEL MÓDULO 'user', CON SU DEBIDO MENU DE OPCIONES. 
     elif choice == 5: 
         os.system("cls")
         while userIn: 

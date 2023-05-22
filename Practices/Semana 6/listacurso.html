@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Primera página web</title>
+  <title>Primera pagina web</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,18 +23,13 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="index.html" role="button" aria-haspopup="true" aria-expanded="false">Cursos</a>
             <div class="dropdown-menu">
-                <!-- <a class="dropdown-item" href="#tab2Id">Crear Cursos</a>
+                <a class="dropdown-item" href="#tab2Id">Crear Cursos</a>
                 <a class="dropdown-item" href="listarcurso.html">Consultar Cursos</a>
                 <a class="dropdown-item" href="#tab3Id">Consultar Cursos por id</a>
-                <a class="dropdown-item" href="#tab3Id">Actualizar Cursos por id</a> -->
-                <!-- <div class="dropdown-divider"></div> -->
-                <p class="text-primary">Crear Cursos</p>
-                <p class="text-secondary">Consultar Cursos</p>
-                <p class="text-success">Consultar Cursos por id</p>
-                <p class="text-danger">Actualizar Cursos por id</p>
-                <p class="text-warning bg-dark">Eliminar Cursos</p>
+                <a class="dropdown-item" href="#tab3Id">Actualizar Cursos por id</a>
                 <div class="dropdown-divider"></div>
-                
+                <a class="dropdown-item" href="#tab4Id">Eliminar Cursos</a>
+            </div>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Grupo</a>
@@ -46,7 +41,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#tab4Id">Eliminar Grupo</a>
             </div>
-        </li>          
+        </li>   
     </ul>
     
     <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
@@ -58,7 +53,40 @@
   </header>
   <main>
     <div class="container">
-
+     
+        <div class="table-responsive">
+            <table class="table table-striped
+            table-hover	
+            table-borderless
+            table-primary
+            align-middle">
+                <thead class="table-light">
+                    <caption>Tabla de datos</caption>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Tiempo</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr class="table-primary" >
+                            <td scope="row">Item</td>
+                            <td>Item</td>
+                            <td>Item</td>
+                            <td>Item</td>
+                        </tr>
+                        <tr class="table-primary">
+                            <td scope="row">Item</td>
+                            <td>Item</td>
+                            <td>Item</td>
+                            <td>Item</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        
+                    </tfoot>
+            </table>
         </div>
         
 

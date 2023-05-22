@@ -1,7 +1,6 @@
 import pymysql
 
 class grupo:
-
     def __init__(self): 
         self.connection = pymysql.connect(
             host = 'sql863.main-hosting.eu',

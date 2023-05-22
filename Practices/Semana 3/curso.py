@@ -1,6 +1,6 @@
 import pymysql
 
-class Database:
+class curso:
     def __init__(self):
         self.connection = pymysql.connect(
             host = 'sql863.main-hosting.eu',#host o ip de la base datos
@@ -8,6 +8,7 @@ class Database:
             password = 'i:![VW:3S#',#password de la base datos
             db = 'u484426513_apireact'#nombre de la base datos
         )
+        
         self.cursor = self.connection.cursor()
 
     def getCurso(self):
